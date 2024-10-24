@@ -1,33 +1,35 @@
 // src/components/CrearUsuario.js
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import register from '../services/userService';
 
-const CrearUsuario = () => {
+const CreateUser = () => {
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rol, setRol] = useState('cliente'); // Rol por defecto
-    const [mensaje, setMensaje] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/usuarios/registro', {
-                nombre,
-                email,
-                password,
-                rol
-            });
-            setMensaje(`Usuario creado con éxito: ${response.data.nombre}`);
+            // Llama al servicio para registrar el usuario
+            const newUser = { nombre, email, password, rol };
+            await register(newUser);
+
+            setSuccess('Usuario creado exitosamente');
+            setError('');
+            // Limpiar campos después de crear el usuario
             setNombre('');
             setEmail('');
             setPassword('');
             setRol('cliente');
-        } catch (error) {
-            console.error('Error al crear el usuario:', error);
-            setMensaje('Error al crear el usuario. Intenta nuevamente.');
+        } catch (err) {
+            console.error('Error al crear usuario', err);
+            setError('Hubo un problema al crear el usuario.');
+            setSuccess('');
         }
     };
 
@@ -71,9 +73,10 @@ const CrearUsuario = () => {
                 </div>
                 <button type="submit">Crear Usuario</button>
             </form>
-            {mensaje && <p>{mensaje}</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{ color: 'green' }}>{success}</p>}
         </div>
     );
 };
 
-export default CrearUsuario;
+export default CreateUser;
