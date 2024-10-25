@@ -14,9 +14,19 @@ const login = async (email, password) => {
     // Guardar el token en localStorage
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
+      // Guardar el usuario en localStorage
+      localStorage.setItem('user', JSON.stringify(response.data.usuario));
+
+    }
+    if (response.data.usuario.rol=="admin") {
+      window.location.href = '/productos'
+    }else{
+      window.location.href = '/'
     }
 
-    return response.data; 
+    
+    //return response.data; 
+     
   } catch (error) {
     throw new Error('Error en el inicio de sesión');
   }

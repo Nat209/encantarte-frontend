@@ -1,54 +1,45 @@
 import React from 'react';
-import authService from '../services/authService';
 
 const HeaderGeneral = () => {
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    // Llama al servicio para cerrar sesión
-    await authService.logout();
-    // Aquí puedes redirigir al usuario o limpiar el estado
-    window.location.href = '/login'; // Redirige al login después de cerrar sesión
-  };
 
   return (
     <header>
-
-<nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+      <nav className="navbar navbar-expand-lg">
+  <div className="container-fluid d-flex justify-content-between">
+    <a className="navbar-brand logo mx-2" href="/">
+    <img src="/img/logo.png" alt="Encantarte"></img> EncantARTE</a>
+    
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
+      <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
+          <a className="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Features</a>
+          <a className="nav-link" href="/amigurumis">Amigurumis</a>
         </li>
+        
         <li className="nav-item">
-          <a className="nav-link" href="#">Pricing</a>
+          <a className="nav-link" href="/pinturas">Pinturas</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+        {/* <li className="nav-item">
+          <a className="nav-link pedido " >Pide tu productos</a>
+        </li> */}
+        <li className="nav-item itembutton">
+          <a className="btn btn-login mx-2" href="/login" type="submit">Iniciar sesión</a>
+        </li>
+        <li className="nav-item itembutton">
+          <a className="btn btn-register mx-2" href="/create" type="submit">Registrarme</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/about">About</a></li>
-          <li>
-            <button onClick={handleLogout} type="button">
-              Cerrar sesión
-            </button>
-          </li>
-        </ul>
-      </nav>
+
+
+
     </header>
   );
 };

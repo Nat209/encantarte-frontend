@@ -3,7 +3,7 @@ import React from 'react';
 const AdminDashboard = () => {
   return (
     <div>
-      <h1>Panel de Administración</h1>
+      <h1>Panel de Administración dddd</h1>
       {/* Agrega contenido específico para Admin */}
     </div>
   );

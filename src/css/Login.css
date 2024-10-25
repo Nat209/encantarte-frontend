@@ -1,0 +1,22 @@
+.container {
+    background-color: #f8f9fa; /* Color de fondo */
+  }
+  
+  .card {
+    border-radius: 8px; /* Bordes redondeados para la tarjeta */
+  }
+  
+  .btn-primary {
+    background-color: #6134de; /* Color personalizado para el botón */
+    border-color: #6134de; /* Color de borde personalizado para el botón */
+  }
+  
+  .btn-primary:hover {
+    background-color: #523996; /* Color al pasar el mouse */
+    border-color: #6134de; /* Color de borde al pasar el mouse */
+  }
+  
+  .text-center {
+    color: #333; /* Color del texto del encabezado */
+  }
+  

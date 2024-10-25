@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+/* Estilos generales */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+  color: #555;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: #f0eeee;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7b6de1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navbar-toggler {
+  border-color: #f6e0e4;
+}
+
+
+
+.navbar-nav .nav-link {
+  color: #ef92e7;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link.active {
+  color: #6F5BDB;
+  text-decoration:underline;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #8fadff;
+}
+
+.navbar-nav  .pedido{
+  color: #710368;
+  font-weight: 500;
+}
+
+
+
+.navbar-nav .pedido:hover {
+  background-color: #710368;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.navbar-nav .nav-item .btn-login {
+  background-color: #6F5BDB;
   color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-nav .nav-item .btn-register {
+  background-color: #ad67df;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar-nav .nav-item .btn-register:hover {
+  background-color: #8940bd;
+}
+.navbar-nav .nav-item .btn-login:hover {
+  background-color: #4d3cab;
+}
+
+
+
+.navbar-nav .nav-item .nav-link.disabled {
+  color: #C8C8C8;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #4d3cab;
+}
+
+  /* Footer */
+  .footer {
+    background-color: #675acb;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
+  .itembutton{
+    margin-top: 10px;
   }
 }
