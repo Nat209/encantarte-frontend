@@ -8,7 +8,7 @@ function App() {
   return (
     <AuthProvider>
          <HeaderContainer />
-      <AppRoutes />
+          <AppRoutes />
       <Footer></Footer>
     </AuthProvider>
 

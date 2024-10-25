@@ -19,7 +19,7 @@ const login = async (email, password) => {
 
     }
     if (response.data.usuario.rol=="admin") {
-      window.location.href = '/productos'
+      window.location.href = '/admin'
     }else{
       window.location.href = '/'
     }
