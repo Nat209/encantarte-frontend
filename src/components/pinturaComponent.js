@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import productoService from '../services/productoService';
+import CustomModal from './CustomModalComponent';
 import '../css/Products.css'; // Estilos personalizados
 
 const Amigurumis = () => {
@@ -22,11 +23,7 @@ const Amigurumis = () => {
     fetchProducts();
   }, []);
 
-  const handleEdit = (productId) => {
-    // Lógica para editar el producto, podrías redirigir a un formulario de edición
-    console.log('Editar producto con ID:', productId);
-    // Aquí podrías usar useNavigate de react-router-dom para redirigir
-  };
+
 
   if (loading) {
     return <div className="loading">Cargando productos...</div>;
@@ -62,9 +59,17 @@ const Amigurumis = () => {
                 <td>{producto.descripcion}</td>
                 <td>${producto.precio}</td>
                 <td>{producto.tipo}</td>
-                <td>{producto.stock > 0 ? `Disponible ${producto.stock}` : 'Agotado'}</td>
+                <td>{producto.stock > 0 ? `${producto.stock}` : 'Agotado'}</td>
                 <td>
-                  <button className="btn btn-primary" onClick={() => handleEdit(producto.id)}>Editar</button>
+                
+     
+                <CustomModal
+                title="Editar Producto"
+                edit="true"
+                product={producto}
+                key={producto.id} // Asegúrate de que cada modal tenga una key única
+                />
+      
                 </td>
               </tr>
             ))}

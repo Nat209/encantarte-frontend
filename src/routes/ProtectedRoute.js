@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
-const ProtectedRoute = ({ children, role }) => {
+const ProtectedRoute = ({ role }) => {
   const { user } = useContext(AuthContext);
 
   if (!user) {
@@ -13,7 +13,8 @@ const ProtectedRoute = ({ children, role }) => {
     return <Navigate to="/not-authorized" />;
   }
 
-  return children;
+  return <Outlet />; // Renderiza las rutas hijas definidas en las rutas
 };
 
 export default ProtectedRoute;
+

@@ -47,7 +47,7 @@ const Pinturas = () => {
                 <div className="card-body">
                   <h2 className="card-title product-name">{producto.nombre}</h2>
                   <p className="card-text product-description">{producto.descripcion}</p>
-                  <p className="product-price">Precio: ${producto.precio}</p>
+                  <p className="product-price">Precio: $ {producto.precio}</p>
                   <p className="product-type">Tipo: {producto.tipo}</p>
                   <p className="product-stock">
                     {producto.stock > 0 ? 'Disponible' : 'Agotado'}

@@ -67,14 +67,14 @@ const consultAmigurumis = async () => {
     }
   };
 
-  const update = async (formData) => {
+  const update = async (id ,formData) => {
     console.log(formData)
     try {
       
   
       // Realizar la solicitud POST a la API
       const response = await axios({
-        url: `${API_URL}/${formData}`, // Asegúrate de que esta sea la URL correcta
+        url: `${API_URL}/${id}`, // Asegúrate de que esta sea la URL correcta
         method: 'PUT',
       
         data: {

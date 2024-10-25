@@ -3,7 +3,7 @@ import productoService from '../services/productoService';
 
 const CustomModal = ({ title, edit, product }) => {
   const [formData, setFormData] = useState({
-    id:'',
+    id: '',
     nombre: '',
     descripcion: '',
     precio: '',
@@ -16,9 +16,9 @@ const CustomModal = ({ title, edit, product }) => {
 
   // Efecto para establecer los datos del formulario cuando se edita un producto
   useEffect(() => {
-    if (edit == "true" && product) {
+    if (edit === "true" && product) {
       setFormData({
-        id:product.id,
+        id: product.id,
         nombre: product.nombre,
         descripcion: product.descripcion,
         precio: product.precio,
@@ -30,8 +30,14 @@ const CustomModal = ({ title, edit, product }) => {
   }, [edit, product]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, files } = e.target;
+
+    // Solo manejar `imagen_url` si estamos registrando (edit === "false")
+    if (name === "imagen_url" && edit === "false") {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -117,7 +123,7 @@ const CustomModal = ({ title, edit, product }) => {
                     </select>
                   </div>
 
-                  {/* No mostrar el campo de imagen_url en edición */}
+                  {/* Mostrar campo de imagen solo si estamos registrando (edit === "false") */}
                   {edit === "false" && (
                     <div className="mb-3">
                       <label htmlFor="imagen_url" className="form-label">URL de Imagen</label>
@@ -126,7 +132,7 @@ const CustomModal = ({ title, edit, product }) => {
                         className="form-control"
                         id="imagen_url"
                         name="imagen_url"
-                        onChange={(e) => handleChange(e.target.files[0])} // Asegúrate de manejar la carga de imágenes correctamente
+                        onChange={handleChange}
                         required
                       />
                     </div>

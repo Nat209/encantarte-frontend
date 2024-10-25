@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import productoService from '../services/productoService';
+import userService from '../services/userService';
 import CustomModal from './CustomModalComponent';
 import '../css/Products.css'; // Estilos personalizados
 
@@ -10,7 +10,7 @@ const Amigurumis = () => {
 
   const fetchProducts = async () => {
     try {
-      const data = await productoService.consultAmigurumis();
+      const data = await userService.consultAdmin();
       setProducts(data);
       setLoading(false);
     } catch (err) {
@@ -42,35 +42,19 @@ const Amigurumis = () => {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Imagen</th>
+              <th scope="col">Id</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Stock</th>
-              <th scope="col">Acciones</th>
+              <th scope="col">Correo</th>
+              
             </tr>
           </thead>
           <tbody>
             {products.map((producto) => (
               <tr key={producto.id}>
-                <td><img src={producto.imagen_url} alt={producto.imagen_url} width={50}></img></td>
+                <td>{producto.id}</td>
                 <td>{producto.nombre}</td>
-                <td>{producto.descripcion}</td>
-                <td>${producto.precio}</td>
-                <td>{producto.tipo}</td>
-                <td>{producto.stock > 0 ? `Disponible: ${producto.stock}` : 'Agotado'}</td>
-                <td>
+                <td>{producto.email}</td>
                 
-     
-                <CustomModal
-                title="Editar Producto"
-                edit="true"
-                product={producto}
-                key={producto.id} // Asegúrate de que cada modal tenga una key única
-                />
-      
-                </td>
               </tr>
             ))}
           </tbody>

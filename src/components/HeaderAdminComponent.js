@@ -32,7 +32,7 @@ const ClienteDashboard = () => {
                                 <a className="nav-link active" aria-current="page" href="/admin">Productos</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/amigurumis">Usuarios</a>
+                                <a className="nav-link" href="/admin/usuarios">Usuarios</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/pinturas">Pinturas</a>

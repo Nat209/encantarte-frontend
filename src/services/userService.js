@@ -21,8 +21,41 @@ const register = async ( nombre,
     throw new Error('Error en el registro de usuario');
   }
 };
+const consultAdmin = async () => {
+  try {
+    // Realiza la solicitud GET, pasando el parámetro 'tipo' en la URL
+    const response = await axios.get(`${API_URL}/consult/?rol=admin`);
+
+    // Muestra la respuesta en la consola
+    console.log(response);
+
+    // Devuelve los datos obtenidos
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los productos:', error);
+    throw new Error('Error al obtener los productos');
+  }
+};
+
+const consultUsers = async () => {
+  try {
+    // Realiza la solicitud GET, pasando el parámetro 'tipo' en la URL
+    const response = await axios.get(`${API_URL}/consult?rol=cliente`);
+
+    // Muestra la respuesta en la consola
+    console.log(response);
+
+    // Devuelve los datos obtenidos
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los productos:', error);
+    throw new Error('Error al obtener los productos');
+  }
+};
 
 
 export default {
     register,
+    consultUsers,
+    consultAdmin
 };

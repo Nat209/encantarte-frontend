@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const HeaderGeneral = () => {
 
   return (
@@ -24,9 +25,7 @@ const HeaderGeneral = () => {
         <li className="nav-item">
           <a className="nav-link" href="/pinturas">Pinturas</a>
         </li>
-        {/* <li className="nav-item">
-          <a className="nav-link pedido " >Pide tu productos</a>
-        </li> */}
+         
         <li className="nav-item itembutton">
           <a className="btn btn-login mx-2" href="/login" type="submit">Iniciar sesión</a>
         </li>
